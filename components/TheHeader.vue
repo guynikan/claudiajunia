@@ -19,8 +19,6 @@ import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 const query = groq`*[_type == "services"]{ name }`
 const { data } :any  = useSanityQuery(query)
 const services = data
-console.log(services)
-debugger;
 
 const service = [
   {
