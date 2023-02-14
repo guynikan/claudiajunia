@@ -23,8 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-import { react } from '@babel/types';
-import { ArrowPathIcon } from '@heroicons/vue/24/outline'
+import { ArrowPathRoundedSquareIcon, BookOpenIcon, UsersIcon, FingerPrintIcon } from '@heroicons/vue/24/outline'
 
 export interface IServiceItem {
   name: string,
@@ -43,22 +42,22 @@ let services: IService  = reactive({
   "Identidade Visual": {
     name: "",
     description: "",
-    icon: ArrowPathIcon
+    icon: FingerPrintIcon
   }, 
-  "UI/UX": {
+  "Apresentações": {
     name: "",
     description: "",
-    icon: ArrowPathIcon
+    icon: ArrowPathRoundedSquareIcon
   }, 
-  "Marca": {
+  "Stationary": {
     name: "",
     description: "",
-    icon: ArrowPathIcon
+    icon: BookOpenIcon
   }, 
-  "Logotipo": {
+  "Endomarketing": {
     name: "",
     description: "",
-    icon: ArrowPathIcon
+    icon: UsersIcon
   }, 
 })
 
