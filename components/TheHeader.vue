@@ -1,17 +1,11 @@
 <script lang="ts" setup>
 import { Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/vue'
 import {
-  ArrowPathIcon,
   Bars3Icon,
   BookmarkSquareIcon,
   CalendarIcon,
-  ChartBarIcon,
-  CursorArrowRaysIcon,
   LifebuoyIcon,
-  PhoneIcon,
-  PlayIcon,
   ShieldCheckIcon,
-  Squares2X2Icon,
   XMarkIcon,
 } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
@@ -20,7 +14,7 @@ const query = groq`*[_type == "services"]{ name }`
 const { data } :any  = useSanityQuery(query)
 const services = data
 
-const service = [
+/* const service = [
   {
     name: 'Analytics',
     description: 'Get a better understanding of where your traffic is coming from.',
@@ -46,7 +40,7 @@ const service = [
     href: '#',
     icon: ArrowPathIcon,
   },
-]
+] */
 const resources = [
   {
     name: 'Help Center',
@@ -111,15 +105,11 @@ const recentPosts = [
                       </div>
                     </a>
                   </div>
-                  <div class="space-y-6 bg-gray-50 px-5 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-                    <div class="flow-root">
-                    </div>
-                  </div>
                 </div>
               </PopoverPanel>
             </transition>
           </Popover>
-          <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">Jobs</a>
+          <a href="#jobs" class="text-base font-medium text-gray-500 hover:text-gray-900">Jobs</a>
           <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">Sobre</a>
 
         </PopoverGroup>
