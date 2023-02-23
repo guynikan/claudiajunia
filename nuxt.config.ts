@@ -1,10 +1,25 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/sanity", '@nuxtjs/tailwindcss'],
+  modules: ["@nuxtjs/sanity", "@nuxtjs/tailwindcss"],
 
   sanity: {
     projectId: "9ddsm6c7",
     apiVersion: "2023-01-30",
+  },
+
+  tailwindcss: {
+    config: {
+      content: [],
+      theme: {
+        extend: {
+          colors: {
+            primary: "#A80E0B",
+            secondary: "#E6E8E6",
+            tertiary: "#2A3D45"
+          },
+        },
+      },
+    },
   },
 
   router: {
