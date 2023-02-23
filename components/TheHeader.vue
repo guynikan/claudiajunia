@@ -110,7 +110,7 @@ const recentPosts = [
             </transition>
           </Popover>
           <a href="#jobs" class="text-base font-medium text-gray-500 hover:text-gray-900">Jobs</a>
-          <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">Sobre</a>
+          <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">Sobre mim</a>
 
         </PopoverGroup>
         <div class="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
