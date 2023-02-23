@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/sanity", "@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/sanity", "@nuxtjs/tailwindcss", 'nuxt-swiper', 'nuxt-icon'],
 
   sanity: {
     projectId: "9ddsm6c7",
