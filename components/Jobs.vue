@@ -24,14 +24,6 @@ const mainTwo = computed(() => {
 </script>
 
 <template>
-  <!--   <ul>
-   <li v-for="job in data" >
-      <h2>
-        {{ job.name }}
-      </h2>
-      <SanityImage :asset-id="job.cover" w="300" />
-    </li>
-  </ul> -->
   <section id="jobs" class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto flex flex-wrap">
       <div class="flex w-full mb-20 flex-wrap">
@@ -39,23 +31,47 @@ const mainTwo = computed(() => {
       </div>
       <div class="flex flex-wrap md:-m-2 -m-1">
         <div class="flex flex-wrap w-1/2">
-          <div v-for="job in firstPart" class="md:p-2 p-1 w-1/2">
-            <SanityImage :asset-id="job.cover" w="501" h="300" :alt="job.alt"
-              class="w-full object-cover h-full object-center block" />
+          <div v-for="job in firstPart" class="md:p-2 p-1 w-1/2 relative overflow-hidden max-h-80">
+            <a :href="`services/${job.name}`" class="overflow-hidden block h-full">
+              <SanityImage :asset-id="job.cover" w="501" h="300" :alt="job.alt"
+                class="w-full object-cover h-full object-center block job__image hover:scale-105 transition" />
+              <div
+                class="opacity-0 absolute bottom-0 left-0 right-0 m-2 py-3 bg-gradient-to-t from-slate-800 transition">
+                <h2 class="px-2 text-white">{{ job.name }}</h2>
+              </div>
+            </a>
           </div>
-          <div class="md:p-2 p-1 w-full">
-            <SanityImage :asset-id="mainOne.cover" w="800" :alt="mainOne.alt"
-              class="w-full h-full object-cover object-center block" />
+        <div class="md:p-2 p-1 w-full relative overflow-hidden max-h-[47rem]">
+            <a :href="`services/${mainOne.name}`" class="overflow-hidden block h-full">
+              <SanityImage :asset-id="mainOne.cover" w="800" :alt="mainOne.alt"
+                class="w-full h-full object-cover object-center block job__image hover:scale-105 transition" />
+              <div
+                class="opacity-0 absolute bottom-0 left-0 right-0 m-2 py-5 bg-gradient-to-t from-slate-800 transition">
+                <h2 class="px-2 text-white">{{ mainOne.name }}</h2>
+              </div>
+            </a>
           </div>
         </div>
         <div class="flex flex-wrap w-1/2">
-          <div class="md:p-2 p-1 w-full">
-            <SanityImage :asset-id="mainTwo.cover" w="800" :alt="mainTwo.alt"
-              class="w-full h-full object-cover object-center block" />
+          <div class="md:p-2 p-1 w-full relative overflow-hidden max-h-[47rem]">
+            <a :href="`services/${mainTwo.name}`" class="overflow-hidden block h-full">
+              <SanityImage :asset-id="mainTwo.cover" w="800" :alt="mainTwo.alt"
+                class="w-full h-full object-cover object-center block job__image hover:scale-105 transition" />
+              <div
+                class="opacity-0 absolute bottom-0 left-0 right-0 m-2 py-5 bg-gradient-to-t from-slate-800 transition">
+                <h2 class="px-2 text-white">{{ mainTwo.name }}</h2>
+              </div>
+            </a>
           </div>
-          <div v-for="job in secondPart" class="md:p-2 p-1 w-1/2">
-            <SanityImage :asset-id="job.cover" w="501" h="300" :alt="job.alt"
-              class="w-full object-cover h-full object-center block" />
+          <div v-for="job in secondPart" class="md:p-2 p-1 w-1/2 relative overflow-hidden max-h-80">
+            <a :href="`services/${job.name}`" class="overflow-hidden block h-full">
+              <SanityImage :asset-id="job.cover" w="501" h="300" :alt="job.alt"
+                class="w-full object-cover h-full object-center block job__image hover:scale-105 transition" />
+              <div
+                class="opacity-0 absolute bottom-0 left-0 right-0 m-2 py-3 bg-gradient-to-t from-slate-800 transition">
+                <h2 class="px-2 text-white">{{ job.name }}</h2>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -64,5 +80,8 @@ const mainTwo = computed(() => {
 </template>
 
 <style scoped>
+.job__image:hover~div {
+  opacity: 1;
 
+}
 </style>
