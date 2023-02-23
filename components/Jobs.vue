@@ -37,7 +37,7 @@ const mainTwo = computed(() => {
                 class="w-full object-cover h-full object-center block job__image hover:scale-105 transition" />
               <div
                 class="opacity-0 absolute bottom-0 left-0 right-0 m-2 py-3 bg-gradient-to-t from-slate-800 transition">
-                <h2 class="px-2 text-white">{{ job.name }}</h2>
+                <h2 class="px-2 text-white text-xl">{{ job.name }}</h2>
               </div>
             </a>
           </div>
@@ -47,7 +47,7 @@ const mainTwo = computed(() => {
                 class="w-full h-full object-cover object-center block job__image hover:scale-105 transition" />
               <div
                 class="opacity-0 absolute bottom-0 left-0 right-0 m-2 py-5 bg-gradient-to-t from-slate-800 transition">
-                <h2 class="px-2 text-white">{{ mainOne.name }}</h2>
+                <h2 class="px-2 text-white text-2xl">{{ mainOne.name }}</h2>
               </div>
             </a>
           </div>
@@ -59,7 +59,7 @@ const mainTwo = computed(() => {
                 class="w-full h-full object-cover object-center block job__image hover:scale-105 transition" />
               <div
                 class="opacity-0 absolute bottom-0 left-0 right-0 m-2 py-5 bg-gradient-to-t from-slate-800 transition">
-                <h2 class="px-2 text-white">{{ mainTwo.name }}</h2>
+                <h2 class="px-2 text-white text-2xl">{{ mainTwo.name }}</h2>
               </div>
             </a>
           </div>
@@ -69,7 +69,7 @@ const mainTwo = computed(() => {
                 class="w-full object-cover h-full object-center block job__image hover:scale-105 transition" />
               <div
                 class="opacity-0 absolute bottom-0 left-0 right-0 m-2 py-3 bg-gradient-to-t from-slate-800 transition">
-                <h2 class="px-2 text-white">{{ job.name }}</h2>
+                <h2 class="px-2 text-white text-xl">{{ job.name }}</h2>
               </div>
             </a>
           </div>
