@@ -1,37 +1,56 @@
 <template>
-    <section class="text-gray-600 body-font">
-        <div class="w-full pl-5 pr-32 py-24 flex bg-gradient-to-t from-secondary banner-bg">
-            <div class="pr-32">
-                <div class="img-container z-10">
-                    <img src="https://picsum.photos/id/823/720" width="360" height="360" alt="">
+    <section>
+        <div class="xl:w-full xl:px-24 xl:pt-24 sm:pt-7 xl:pb-12 flex bg-gradient-to-t from-secondary banner-bg justify-center">
+            <div class="pt-5 px-5 pb-2 flex flex-col justify-center z-10 items-center w-full">
+                <div class="flex w-full xl:w-8/12 justify-between flex-col items-center">
+                    <div class="highlight-container w-11/12 xl:w-8/12 xl:p-6">
+                        <h1 class="text-center text-2xl xl:text-6xl px-8 text-secondary block w-full m-auto highlight xl:pb-2">{{  banner[0].title }}, </h1>
+                    </div>
+                    <h2 class="text-center text-2xl xl:text-6xl px-12 pb-10 xl:px-32 text-tertiary block w-full xl:w-10/12 m-auto relative"> {{  banner[0].subtitle }}</h2>
                 </div>
-                <div class="flex justify-center py-10 z-10">
-                    <a class="ml-3 text-secondary z-10">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-                        </svg>
+            <div class="hidden xl:flex justify-between items-center w-full">
+                <div class="xl:justify-center jis py-10 z-10 items-center flex">
+                    <a href="https://www.linkedin.com/in/claudiajunia/" class="ml-3 text-tertiary z-10">
+                            <Icon name="logos:linkedin-icon" size="2rem" />
                     </a>
-                    <a class="ml-3 text-secondary z-10">
-                        <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
-                            <path stroke="none"
-                                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
-                            </path>
-                            <circle cx="4" cy="4" r="2" stroke="none"></circle>
-                        </svg>
+                    <a href="https://www.behance.net/claudiajunia" class="ml-3 text-tertiary z-10">
+                            <Icon name="logos:behance" size="7rem" />
                     </a>
                 </div>
+                    <div class="w-3/6 xl:w-1/6 xl:pb-3">
 
+                    <Swiper :modules="[SwiperAutoplay]" :slidesPerView="3" :loop="true" :autoplay="{
+                        delay: 2000,
+                    }">
+                        <SwiperSlide v-for="tool in tools" :key="slide">
+                            <Icon :name="tool" size="2em" />
+                        </SwiperSlide>
+                    </Swiper>
+                    </div>
             </div>
-            <div class="p-5 flex flex-col items-start w-3/6 justify-center z-10">
-                <h1 class="text-center text-3xl pb-3 text-primary">Claudia Junia</h1>
-                <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in enim urna. Maecenas
-                    fringilla vel tortor
-                    eu bibendum. Donec elit libero, vestibulum vel dui eget, molestie aliquam metus. Nunc tortor massa,
-                    condimentum et enim at, scelerisque varius arcu. Nullam augue quam, posuere hendrerit ligula ac, mattis
-                    posuere mi. Curabitur tempor vitae mi vel venenatis.</p>
+                <p class="text-tertiary text-center text-md xl:text-xl w-full xl:w-8/12 m-auto">{{  banner[0].description }}
+                </p>
+                <div class="flex xl:hidden justify-between items-center w-full">
+                <div class="xl:justify-center jis py-3 z-10 items-center flex">
+                    <a href="https://www.linkedin.com/in/claudiajunia/" class="ml-3 text-tertiary z-10">
+                            <Icon name="logos:linkedin-icon" size="1.5rem" />
+                    </a>
+                    <a href="https://www.behance.net/claudiajunia" class="ml-3 text-tertiary z-10">
+                            <Icon name="logos:behance" size="4rem" />
+                    </a>
+                </div>
+                    <div class="w-3/6 xl:w-1/6 pb-3">
+
+                    <Swiper :modules="[SwiperAutoplay]" :slidesPerView="3" :loop="true" :autoplay="{
+                        delay: 2000,
+                    }">
+                        <SwiperSlide v-for="tool in tools" :key="slide">
+                            <Icon :name="tool" size="1.5rem" />
+                        </SwiperSlide>
+                    </Swiper>
+                    </div>
+            </div>
+                
             </div>
             <div class="wave"></div>
             <div class="wave"></div>
@@ -42,64 +61,56 @@
 </template>
 
 <script setup>
+const tools = ['logos:adobe-photoshop', 'logos:adobe-illustrator', 'logos:adobe-indesign', 'logos:adobe-after-effects', 'logos:adobe-premiere', 'logos:figma']
+
+const query = groq`*[_type == "banner"]{ title, subtitle, description }`
+const { data: banner } = useSanityQuery(query)
 
 </script>
 
 <style scoped>
-.img-container {
-    position: relative;
-    padding: 30px;
-}
-
-.img-container::after {
-    content: '';
-    border-radius: 999px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: conic-gradient(from 30deg,
-            #A80E0B,
-            #E6E8E6 46%,
-            transparent 46%);
-    -webkit-mask: radial-gradient(farthest-side,
-            transparent calc(100% - 3px),
-            #fff calc(100% - 3px + 1px));
-    mask: radial-gradient(farthest-side,
-            transparent calc(100% - 3px),
-            #fff calc(100% - 3px + 1px));
-}
-
-img {
-    border-radius: 999px;
-    display: block;
-}
 
 .banner-bg {
     overflow: hidden;
     position: relative;
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 0%;
-    }
-    50% {
-        background-position: 100% 100%;
-    }
-    100% {
-        background-position: 0% 0%;
+.highlight-container, .highlight {
+  position: relative;
+}
+
+.highlight-container {
+  display: inline-block;
+}
+.highlight-container:before {
+  content: " ";
+  display: block;
+  height: 95%;
+  width: 85%;
+  position: absolute;
+  background: #a80e0b;
+/*   transform: rotate(2deg); */
+  top: 3px;
+  left: 20px;
+/*   border-radius: 20% 25% 20% 24%; */
+  padding: 10px 3px 3px 10px;
+}
+
+@media only screen and (min-width: 1280px) {
+    .highlight-container:before {
+        height: 90%;
+        width: 95%;
+        top: 6px;
+        left: 6px;
     }
 }
 
 .wave {
-    background-color: #2a3d45;
+    background-color: #e6e8e6;
     border-radius: 1000% 1000% 0 0;
     position: absolute;
     width: 200%;
-    height: 32em;
+    height: 20em;
     animation: wave 10s -3s linear infinite;
     transform: translate3d(0, 0, 0);
     opacity: 0.8;
